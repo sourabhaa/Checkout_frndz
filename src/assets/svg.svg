@@ -1,0 +1,10 @@
+<svg width="213" height="241" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" version="1.0">
+
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_1" fill="white" transform="translate(0 241) scale(0.1 -0.1)">
+   <path id="svg_2" d="m1915,2318c-11,-6 -59,-48 -106,-93c-99,-93 -204,-154 -326,-187c-69,-18 -117,-21 -413,-27l-335,-7l-95,-33c-271,-92 -458,-279 -551,-549c-33,-95 -34,-101 -34,-262c0,-161 1,-167 34,-262c93,-270 280,-457 551,-549l95,-33l335,-7c296,-6 344,-9 413,-27c122,-33 227,-94 326,-187c99,-94 116,-105 166,-105c27,0 44,8 66,29l29,29l0,1112l0,1112l-29,29c-32,31 -87,39 -126,17z"/>
+  </g>
+  <polyline stroke-linecap="round" id="svg_3" points="95.5,97.5 95.5,97.5 " stroke="#000" fill="none"/>
+ </g>
+</svg>
