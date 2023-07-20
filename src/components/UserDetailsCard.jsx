@@ -8,8 +8,10 @@ import {
   SimpleGrid,
   GridItem,
   Divider,
-  HStack,
   Flex,
+  HStack,
+  Stack,
+  StackDivider,
 } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 
@@ -34,10 +36,10 @@ function UserDetailsCard({ user }) {
 
   return (
     <Flex mt={8}>
-      <Box>
-        <VStack w={450} pr={10}>
+      <Box m={0}>
+        <VStack w={350} m={0}>
           {/* Profile Picture */}
-          <Box>
+          <Box m={0}>
             <Avatar
               name={user.name}
               src={user.profilepicture}
@@ -46,73 +48,157 @@ function UserDetailsCard({ user }) {
             ></Avatar>
           </Box>
           {/* Name */}
-          <Text textAlign="center" fontSize="lg">
+          <Text
+            textAlign="center"
+            fontSize="lg"
+            fontWeight="semibold"
+            color="#545454"
+          >
             {user.name}
           </Text>
           <SimpleGrid columns={2} fontSize="lg">
             {/* Psersonal Info */}
-            <GridItem textAlign="right" w={180}>
-              <Text>Username : </Text>
-              <Text>e-mail : </Text>
-              <Text>Phone : </Text>
-              <Text>Website : </Text>
-            </GridItem>
-            <GridItem textAlign="left" w={270}>
-              <Text> {user.username} </Text>
-              <Text> {user.email} </Text>
-              <Text> {user.phone} </Text>
-              <Text> {user.website} </Text>
-            </GridItem>
+            <VStack
+              alignItems="flex-end"
+              mr={1}
+              fontWeight="normal"
+              color="#9A9A9A"
+            >
+              <GridItem textAlign="right" w={120} rowSpan={2}>
+                <Text pb={2}>Username : </Text>
+              </GridItem>
+              <GridItem>
+                <Text pb={2}>e-mail : </Text>
+              </GridItem>
+              <GridItem>
+                <Text pb={2}>Phone : </Text>
+              </GridItem>
+              <GridItem>
+                <Text>Website : </Text>
+              </GridItem>
+            </VStack>
+
+            <VStack
+              alignItems="flex-start"
+              ml={1}
+              fontWeight="bold"
+              color="#545454"
+            >
+              <GridItem textAlign="left" w={120} rowSpan={2}>
+                <Text pb={2} textAlign="left" justifySelf="flex-start">
+                  {user.username}
+                </Text>
+              </GridItem>
+              <GridItem>
+                <Text pb={2}>{user.email} </Text>
+              </GridItem>
+              <GridItem>
+                <Text pb={2}>{user.phone} </Text>
+              </GridItem>
+              <GridItem>
+                <Text>{user.website} </Text>
+              </GridItem>
+            </VStack>
           </SimpleGrid>
           <Divider />
           {/* Company Info */}
-          <Text textAlign="center" fontSize="md">
+          <Text textAlign="center" fontSize="lg" pb={1}>
             Company
           </Text>
+
           <SimpleGrid columns={2} fontSize="lg">
-            <GridItem textAlign="right" w={180}>
-              <Text>Name : </Text>
-              <Text>Catchphrase : </Text>
-              <Text>bs : </Text>
-            </GridItem>
-            <GridItem mr={2} textAlign="left" w={290}>
-              <Text> {user.company.name} </Text>
-              <Text> {user.company.catchPhrase} </Text>
-              <Text> {user.company.bs} </Text>
-            </GridItem>
+            <VStack
+              alignItems="flex-end"
+              mr={1}
+              fontWeight="normal"
+              color="#9A9A9A"
+            >
+              <GridItem textAlign="right" w={120} rowSpan={2}>
+                <Text pb={3}>Name : </Text>
+              </GridItem>
+              <GridItem>
+                <Text pb={7}>Catchphrase :</Text>
+              </GridItem>
+              <GridItem>
+                <Text pb={3}>bs : </Text>
+              </GridItem>
+            </VStack>
+
+            <VStack
+              alignItems="flex-start"
+              ml={1}
+              fontWeight="semibold"
+              color="#545454"
+            >
+              <GridItem textAlign="left" w={180} rowSpan={2}>
+                <Text pb={2} textAlign="left" justifySelf="flex-start">
+                  {user.company.name}
+                </Text>
+              </GridItem>
+              <GridItem>
+                <Text pb={2}>{user.company.catchPhrase} </Text>
+              </GridItem>
+              <GridItem>
+                <Text pb={2}>{user.company.bs} </Text>
+              </GridItem>
+            </VStack>
           </SimpleGrid>
         </VStack>
       </Box>
-      <Divider orientation="vertical" h="full"></Divider>
-      <Box w={670}>
-        {/* Address Info */}
-        <VStack w={600} align="flex-start" px={10}>
-          <Text ml={3}>Address:</Text>
-          <SimpleGrid pr={7} fontSize="lg" columns={2}>
-            <GridItem textAlign="right">
-              <Text>Street :</Text>
-              <Text>Suite : </Text>
-              <Text>City : </Text>
-              <Text>Zipcode : </Text>
-            </GridItem>
-            <GridItem ml={2} textAlign="left">
-              <Text>{user.address.street} </Text>
-              <Text>{user.address.suite} </Text>
-              <Text>{user.address.city} </Text>
-              <Text>{user.address.zipcode} </Text>
-            </GridItem>
-          </SimpleGrid>
-          {/* Google Map */}
-          <LoadScript googleMapsApiKey="">
-            <GoogleMap
-              mapContainerStyle={mapContainerStyle}
-              center={center}
-              zoom={10}
+      {/* <Divider ml={3} orientation="vertical" h="full" size="1px"></Divider> */}
+      <Box ml={5}>
+        <Stack>
+          <HStack>
+            <Divider
+              ml={3}
+              orientation="vertical"
+              h="full"
+              size="1px"
+            ></Divider>
+          </HStack>
+          {/* <StackDivider aria-orientation="vertical"></StackDivider> */}
+          {/* Address Info */}
+          <HStack>
+            <VStack
+              w={600}
+              align="flex-start"
+              px={10}
+              fontWeight="normal"
+              color="#9A9A9A"
             >
-              <Marker position={center} />
-            </GoogleMap>
-          </LoadScript>
-        </VStack>
+              <Text ml={3}>Address:</Text>
+              <SimpleGrid pr={7} fontSize="lg" columns={2}>
+                <GridItem textAlign="right">
+                  <Text pb={1}>Street :</Text>
+                  <Text pb={1}>Suite : </Text>
+                  <Text pb={1}>City : </Text>
+                  <Text pb={1}>Zipcode : </Text>
+                </GridItem>
+                <GridItem
+                  ml={2}
+                  textAlign="left"
+                  fontWeight="bold"
+                  color="#545454"
+                >
+                  <Text pb={1}>{user.address.street} </Text>
+                  <Text pb={1}>{user.address.suite} </Text>
+                  <Text pb={1}>{user.address.city} </Text>
+                  <Text pb={1}>{user.address.zipcode} </Text>
+                </GridItem>
+              </SimpleGrid>
+              {/* Google Map */}
+              <LoadScript googleMapsApiKey="AIzaSyC6rtq53SQmt57jsch5v3a6RILdo0pgxxY">
+                <GoogleMap
+                  mapContainerStyle={mapContainerStyle}
+                  center={center}
+                  zoom={10}
+                >
+                  <Marker position={center} />
+                </GoogleMap>
+              </LoadScript>
+            </VStack>
+          </HStack>
+        </Stack>
       </Box>
     </Flex>
   );

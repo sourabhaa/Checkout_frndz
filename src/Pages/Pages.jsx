@@ -90,7 +90,7 @@ function Pages() {
   };
   return (
     <Box mt={9} w="full">
-      <Flex>
+      <Flex alignItems="flex-start">
         {/* Left Side Bar */}
         <Box
           mt={3}
@@ -230,7 +230,7 @@ function Pages() {
           </Grid>
         </Box>
 
-        <VStack mt={6} w="full">
+        <VStack mt={6} w="full" m={0}>
           {/* Navbar */}
           <Navbar page={activeText} user={user} users={users} />
 
