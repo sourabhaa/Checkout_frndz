@@ -35,6 +35,7 @@ const UserAccountsCard = () => {
         </Heading>
       </CardHeader>
 
+      {/* User Listing */}
       <CardBody px={6} pt={1}>
         {userDetails.map((user) => (
           <SingeUserAccounts user={user} key={user.id} />

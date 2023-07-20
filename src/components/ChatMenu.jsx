@@ -8,20 +8,10 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import React from "react";
-import { useEffect } from "react";
 
 function ChatMenu({ users }) {
-  useEffect(() => {
-    return () => {
-      console.log("in chatmenu");
-    };
-  }, []);
-
   return (
-    // <Menu>
-    //   <MenuButton as={Button} bg="#2C64C8" size="xl" w={100}></MenuButton>
-    //   <MenuList>
-    // <MenuGroup>
+    // Name list inside the Chat Menu
     <Box maxH={100} alignContent="center" overflow="auto">
       {users.map((user) => (
         <Box>
@@ -46,9 +36,6 @@ function ChatMenu({ users }) {
         </Box>
       ))}
     </Box>
-    //     {/* </MenuGroup> */}
-    //   {/* </MenuList> */}
-    // {/* </Menu> */}
   );
 }
 

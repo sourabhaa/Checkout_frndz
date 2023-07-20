@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 function SingeUserAccounts({ user }) {
   const navigate = useNavigate();
   return (
+    // Single User Account with Name anf Profile Picture
     <Stack spacing="1">
       <Box height="30" bg="transparent">
         <Wrap

@@ -36,6 +36,7 @@ function UserDetailsCard({ user }) {
     <Flex mt={8}>
       <Box>
         <VStack w={450} pr={10}>
+          {/* Profile Picture */}
           <Box>
             <Avatar
               name={user.name}
@@ -44,10 +45,12 @@ function UserDetailsCard({ user }) {
               h="180px"
             ></Avatar>
           </Box>
+          {/* Name */}
           <Text textAlign="center" fontSize="lg">
             {user.name}
           </Text>
           <SimpleGrid columns={2} fontSize="lg">
+            {/* Psersonal Info */}
             <GridItem textAlign="right" w={180}>
               <Text>Username : </Text>
               <Text>e-mail : </Text>
@@ -62,6 +65,7 @@ function UserDetailsCard({ user }) {
             </GridItem>
           </SimpleGrid>
           <Divider />
+          {/* Company Info */}
           <Text textAlign="center" fontSize="md">
             Company
           </Text>
@@ -81,6 +85,7 @@ function UserDetailsCard({ user }) {
       </Box>
       <Divider orientation="vertical" h="full"></Divider>
       <Box w={670}>
+        {/* Address Info */}
         <VStack w={600} align="flex-start" px={10}>
           <Text ml={3}>Address:</Text>
           <SimpleGrid pr={7} fontSize="lg" columns={2}>
@@ -97,7 +102,8 @@ function UserDetailsCard({ user }) {
               <Text>{user.address.zipcode} </Text>
             </GridItem>
           </SimpleGrid>
-          <LoadScript googleMapsApiKey="AIzaSyC6rtq53SQmt57jsch5v3a6RILdo0pgxxY">
+          {/* Google Map */}
+          <LoadScript googleMapsApiKey="">
             <GoogleMap
               mapContainerStyle={mapContainerStyle}
               center={center}

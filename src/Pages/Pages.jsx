@@ -29,6 +29,7 @@ import { useNavigate } from "react-router-dom";
 import ChatMenu from "../components/ChatMenu";
 
 function Pages() {
+  // Dummy Data
   const dummy_user = {
     id: 1,
     name: "Loading...",
@@ -66,15 +67,14 @@ function Pages() {
       );
       setUser(userDetails);
       setUsers(response.data.users);
-      console.log("user in profile:", user);
     } catch (error) {
       console.error("Error fetching user profile:", error);
     }
   };
 
   useEffect(() => {
+    // Fetch User Details via API call
     fetchUserProfile();
-    console.log("user in useeffect: ", user);
   }, []);
 
   const navigate = useNavigate();
@@ -91,6 +91,7 @@ function Pages() {
   return (
     <Box mt={9} w="full">
       <Flex>
+        {/* Left Side Bar */}
         <Box
           mt={3}
           ml={3}
@@ -106,6 +107,7 @@ function Pages() {
               textAlign="left"
               justifyContent="space-around"
             >
+              {/* Profile */}
               <Wrap overflow="auto" mt={2}>
                 <WrapItem>
                   <Text
@@ -135,6 +137,7 @@ function Pages() {
                 <Divider mr={9} />
               </Wrap>
 
+              {/* Post */}
               <Wrap overflow="auto" mt={2}>
                 <WrapItem>
                   <Text
@@ -164,6 +167,7 @@ function Pages() {
                 <Divider mr={9} />
               </Wrap>
 
+              {/* Gallery */}
               <Wrap overflow="auto" mt={2}>
                 <WrapItem>
                   <Text
@@ -193,6 +197,7 @@ function Pages() {
                 <Divider mr={9} />
               </Wrap>
 
+              {/* ToDO */}
               <Wrap overflow="auto" mt={2}>
                 <WrapItem>
                   <Text
@@ -226,12 +231,16 @@ function Pages() {
         </Box>
 
         <VStack mt={6} w="full">
+          {/* Navbar */}
           <Navbar page={activeText} user={user} users={users} />
+
+          {/* Main screens */}
           {activeText === "Profile" && <UserDetailsCard user={user} mt={4} />}
           {activeText === "Post" && <ComingSoon />}
           {activeText === "Gallery" && <ComingSoon />}
           {activeText === "ToDo" && <ComingSoon />}
           <Box>
+            {/* Chat menu */}
             <Menu borderRadius="full" boxShadow="lg" cursor="pointer">
               <MenuButton
                 as={Button}

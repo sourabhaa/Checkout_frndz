@@ -20,6 +20,7 @@ function ProfileMenu({ user, users }) {
       <Text fontSize="md">{user.email}</Text>
       <Box maxH={100} alignContent="center" overflow="auto">
         {users.map((user) => (
+          //User profile Menu with list of Users
           <Box>
             <Divider />
             <Wrap
@@ -45,6 +46,8 @@ function ProfileMenu({ user, users }) {
           </Box>
         ))}
       </Box>
+
+      {/* Action Button - Sign Out */}
       <Button
         size="sm"
         rounded="2xl"

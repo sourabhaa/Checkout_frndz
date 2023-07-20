@@ -19,10 +19,13 @@ function Navbar({ page, user, users }) {
   return (
     <Box h="50px" w="100%" ml={4}>
       <Flex>
+        {/* Page Label */}
         <Text ml={4} fontSize="xl" fontWeight="semibold" color="gray.600">
           {page}
         </Text>
         <Spacer />
+
+        {/* Profile shortcut Menu & Signout */}
         <Wrap mr={2}>
           <WrapItem>
             <Menu rounded="20px" size="xl" shadow="dark-lg">
