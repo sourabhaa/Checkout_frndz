@@ -48,6 +48,7 @@ function Pages() {
   };
   const { id } = useParams();
   const [user, setUser] = useState(dummy_user);
+  const [users, setUsers] = useState([dummy_user]);
 
   const fetchUserProfile = async () => {
     try {
@@ -57,6 +58,7 @@ function Pages() {
         console.log("rewsponse in profile", response),
       );
       setUser(userDetails);
+      setUsers(response.data.users);
       console.log("user in profile:", user);
     } catch (error) {
       console.error("Error fetching user profile:", error);
@@ -217,11 +219,7 @@ function Pages() {
         </Box>
 
         <VStack mt={6} w="full">
-          <Navbar
-            name={user.name}
-            pic={user.profilepicture}
-            page={activeText}
-          />
+          <Navbar page={activeText} user={user} users={users} />
           {activeText === "Profile" && <UserDetailsCard user={user} mt={4} />}
           {activeText === "Post" && <ComingSoon />}
           {activeText === "Gallery" && <ComingSoon />}

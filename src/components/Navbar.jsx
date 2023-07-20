@@ -7,10 +7,15 @@ import {
   Text,
   Wrap,
   WrapItem,
+  MenuButton,
+  MenuGroup,
+  Menu,
+  MenuList,
 } from "@chakra-ui/react";
 import React from "react";
+import ChangeProfileCard from "./ProfileMenu";
 
-function Navbar({ name, pic, page }) {
+function Navbar({ page, user, users }) {
   return (
     <Box h="50px" w="100%" ml={4}>
       <Flex>
@@ -20,11 +25,23 @@ function Navbar({ name, pic, page }) {
         <Spacer />
         <Wrap mr={2}>
           <WrapItem>
-            <Avatar size="sm" name={name} src={pic}></Avatar>
+            <Menu rounded="20px" size="xl" shadow="dark-lg">
+              <MenuButton
+                as={Avatar}
+                size="sm"
+                name={user.name}
+                src={user.profilepicture}
+              />
+              <MenuList>
+                <MenuGroup>
+                  <ChangeProfileCard user={user} users={users} />
+                </MenuGroup>
+              </MenuList>
+            </Menu>
           </WrapItem>
           <WrapItem>
             <Text fontSize="md" textAlign="center" pt={1}>
-              {name}
+              {user.name}
             </Text>
           </WrapItem>
         </Wrap>
