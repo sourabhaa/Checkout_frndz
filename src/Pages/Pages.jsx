@@ -12,7 +12,13 @@ import {
   WrapItem,
   IconButton,
   VStack,
+  Menu,
+  MenuGroup,
+  MenuButton,
+  MenuList,
+  Button,
 } from "@chakra-ui/react";
+// import { Fixed } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -20,6 +26,7 @@ import ComingSoon from "../components/ComingSoon";
 
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
+import ChatMenu from "../components/ChatMenu";
 
 function Pages() {
   const dummy_user = {
@@ -224,6 +231,21 @@ function Pages() {
           {activeText === "Post" && <ComingSoon />}
           {activeText === "Gallery" && <ComingSoon />}
           {activeText === "ToDo" && <ComingSoon />}
+          <Box>
+            <Menu borderRadius="full" boxShadow="lg" cursor="pointer">
+              <MenuButton
+                as={Button}
+                bg="#2C64C8"
+                size="xl"
+                w={150}
+              ></MenuButton>
+              <MenuList>
+                <MenuGroup>
+                  <ChatMenu users={users} alignSelf="center" />
+                </MenuGroup>
+              </MenuList>
+            </Menu>
+          </Box>
         </VStack>
       </Flex>
     </Box>
